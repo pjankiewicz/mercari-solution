@@ -1,0 +1,37 @@
+import gzip
+import base64
+import os
+import sys
+sys.path.append('/kaggle/working')
+
+# this is base64 encoded source code
+file_data = {file_data}
+
+os.system('mkdir mercari')
+
+for fn, encoded in file_data.items():
+    print(fn)
+    with open('mercari/' + fn, 'wb') as out:
+        out.write(gzip.decompress(base64.b64decode(encoded)))
+
+with open('setup.py','wt') as out:
+    out.write("""
+from setuptools import setup
+
+setup(
+    name='mercari',
+    packages=["mercari"],
+)
+""")
+
+def run(command):
+    os.system('export VALIDATION_SIZE=0.01 && export PYTHONPATH=${PYTHONPATH}:/kaggle/working && ' + command)
+
+run('python setup.py develop --install-dir /kaggle/working')
+
+run('python mercari/main_{name}.py 1')
+run('python mercari/main_{name}.py merge')
+run('python mercari/main_{name}.py 3')
+run('python mercari/main_{name}.py merge')
+run('python mercari/main_{name}.py 2')
+run('python mercari/main_{name}.py merge')

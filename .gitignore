@@ -1,0 +1,13 @@
+build/
+*.egg-info/
+.ipynb_checkpoints
+.idea/
+input/
+mercari/submission*.csv
+*.log
+script/
+*.joblib
+datasets/
+*.txt
+__pychache__
+tests/__pychache__

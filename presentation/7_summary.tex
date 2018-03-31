@@ -1,0 +1,89 @@
+
+\begin{frame}
+    \frametitle{Other Solutions}
+    Popular models:
+    \begin{itemize}
+        \item Ridge
+        \item GRU and Conv1D
+        \item LightGBM
+        \item Wordbatch FTRL, FM\_FTRL (@anttip)
+        % TODO - more about Wordbatch?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{2nd place solution: 0.3889 by Mercaring (Nima \& Chahhou)}
+    \begin{itemize}
+        \item Concatenate brand and category with name
+        \item Ridge on concatenated name + description: 0.418
+        \item Sparse NN
+        \item fastText NN, shared name and description embeddings
+        \item Sparse NN on a different dataset
+        \item Double batch size after each epoch
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{3rd place solution: 0.3905 by @whitebird}
+    \begin{itemize}
+        \item CNN model: 0.400
+        \item Wordbatch FM\_FTRL: 0.415
+        \item A lot of effort on optimization
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{@sergeif magic feature: any model (inc. Ridge) to $<$0.410}
+    \begin{itemize}
+        \item brand $\times$ name, brand $\times$ description
+        \item category $\times$ name, category $\times$ description
+        \item etc \textellipsis
+    \end{itemize}
+
+    \texttt{brand="Apple", name="iPhone 8s new"}
+    $\Rightarrow$ \\
+    \texttt{\{"Apple\_iPhone", "Apple\_8s", "Apple\_new"\}}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main differences of our approach}
+    \begin{itemize}
+        \item One model kind, 3 datasets
+        \item Train 12 models
+        \item Sparse MLP model
+        \item Early merge: almost all good ideas created after merging
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Questions?
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{First Layer Hidden Size}
+    \begin{center}
+        \begin{tabular}{c|r}
+            Hidden size & Score (delta) \\\hline
+            128 & 0.3757 (+0.0024) \\
+            256 & 0.3733 (+0.0000) \\
+            384 & 0.3728 ($-$0.0005)
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Binariezed Features, Classification}
+    \begin{center}
+        \begin{tabular}{c|r}
+            Setup & Score (delta) \\\hline
+            default & 0.3733 (+0.0000) \\
+            no binary & 0.3740 (+0.0007) \\
+            no clf & 0.3742 (+0.0009) \\
+            no both & 0.3748 (+0.0015)
+        \end{tabular}
+    \end{center}
+\end{frame}
