@@ -1,44 +1,25 @@
-Current stats
-===============
+1st place solution to Mercari Price Suggestion Challenge
+========================================================
 
-all models 0.3779913547983688
+https://www.kaggle.com/c/mercari-price-suggestion-challenge/
 
-round 0.39186045616470777
-merged: 0.4096
-merged: 0.4095
-merged: 0.4112
-merged: 0.4133
-
-round 0.3902240601356946
-merged: 0.4146
-merged: 0.4092
-merged: 0.4217
-merged: 0.4134
-
-round 0.3881442392701291
-merged: 0.4057
-merged: 0.4048
-merged: 0.4124
-merged: 0.4096
-
-running time: 52 minutes
-
-Coefs
-=====
+Model stats
+-----------
 
 ```
 merge_predictions =
-+0.0908 * data_proc_1__RegressionHuber_0
-+0.0825 * data_proc_1__RegressionHuber_0
-+0.0823 * data_proc_1__RegressionClf_0
-+0.0492 * data_proc_1__RegressionClf_0
-+0.0865 * data_proc_kl__RegressionHuber_0
-+0.1075 * data_proc_kl__RegressionHuber_0
-+0.0730 * data_proc_kl__RegressionClf_0
-+0.0919 * data_proc_kl__RegressionClf_0
-+0.1079 * data_proc_pj_2__RegressionHuber_0
-+0.1078 * data_proc_pj_2__RegressionHuber_0
-+0.0682 * data_proc_pj_2__RegressionClf_0
-+0.0689 * data_proc_pj_2__RegressionClf_0
-merged: 0.3780
+-0.0203
++0.0604 * data1_huber
++0.1051 * data1_huber
++0.0911 * data1_clf
++0.0760 * data1_clf
++0.0851 * data2_huber_bin
++0.0981 * data2_huber
++0.0819 * data2_clf_bin
++0.0717 * data2_clf
++0.0958 * data3_huber_bin
++0.1226 * data3_huber
++0.0578 * data3_clf_bin
++0.0642 * data3_clf
+=> RMSLE 0.3733
 ```
