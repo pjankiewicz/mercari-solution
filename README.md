@@ -3,6 +3,11 @@
 
 https://www.kaggle.com/c/mercari-price-suggestion-challenge/
 
+Presentation link (talk gave on 31 March 2018)
+========================================================
+
+https://github.com/pjankiewicz/mercari-solution/raw/master/presentation/build/yandex.pdf
+
 Model stats
 -----------
 
